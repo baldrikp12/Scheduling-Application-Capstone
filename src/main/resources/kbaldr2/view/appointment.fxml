@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="parentPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="396.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kbaldr2.controller.AppointmentController">
+    <children>
+        <TextField fx:id="titleField" layoutX="14.0" layoutY="131.0" prefHeight="25.0" prefWidth="141.0" promptText="Title" />
+        <TextArea fx:id="descArea" layoutX="14.0" layoutY="203.0" prefHeight="123.0" prefWidth="200.0" promptText="Description" wrapText="true" />
+        <TextField fx:id="locationField" layoutX="14.0" layoutY="158.0" prefHeight="25.0" prefWidth="303.0" promptText="Location" />
+        <TextField fx:id="typeField" layoutX="167.0" layoutY="131.0" promptText="Type" />
+        <DatePicker fx:id="datePicker" layoutX="218.0" layoutY="203.0" onMouseReleased="#updateStartTime" prefHeight="25.0" prefWidth="141.0" promptText="Date" />
+        <HBox layoutX="150.0" layoutY="364.0" spacing="25.0">
+            <children>
+                <Button fx:id="addModifyButton" mnemonicParsing="false" onAction="#addModifyApp" text="Create" />
+                <Button mnemonicParsing="false" onAction="#close" text="Cancel" />
+            </children>
+        </HBox>
+        <Label fx:id="addModLabel" alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="35.0" prefWidth="409.0" text="Create Appointment">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="218.0" layoutY="239.0" text="Start Time" />
+        <ListView fx:id="startTimeListView" editable="true" layoutX="218.0" layoutY="255.0" onMouseReleased="#updateEndTime" prefHeight="69.0" prefWidth="82.0" />
+        <Label layoutX="306.0" layoutY="239.0" text="End time" />
+        <ListView fx:id="endTimeListView" editable="true" layoutX="306.0" layoutY="255.0" prefHeight="69.0" prefWidth="82.0" />
+        <Label layoutX="14.0" layoutY="80.0" text="Customer" />
+      <Label layoutX="172.0" layoutY="80.0" text="Contact" />
+      <ComboBox fx:id="customerCombo" layoutX="14.0" layoutY="97.0" prefWidth="150.0" />
+      <ComboBox fx:id="contactCombo" layoutX="173.0" layoutY="97.0" prefWidth="150.0" />
+      <HBox layoutX="17.0" layoutY="389.0" spacing="5.0">
+         <children>
+            <Label text="Current User:" />
+            <Label fx:id="userLabel" text="User" />
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="63.0">
+         <children>
+            <Label alignment="CENTER" text="APP ID: " />
+            <Label fx:id="appIDField" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="42.0" text="AUTO" />
+         </children>
+      </HBox>
+      <HBox layoutX="17.0" layoutY="326.0" spacing="5.0">
+         <children>
+            <Label text="Created By: " />
+            <Label fx:id="createdByLabel" text="User" />
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

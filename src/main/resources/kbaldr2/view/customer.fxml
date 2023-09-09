@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="parentPane" prefHeight="279.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kbaldr2.controller.CustomerController">
+    <children>
+        <HBox layoutX="270.0" layoutY="161.0" prefHeight="17.0" prefWidth="223.0" spacing="10.0">
+            <children>
+                <RadioButton fx:id="usRadio" mnemonicParsing="false" onAction="#radioSelectAction" selected="true" text="United States">
+               <toggleGroup>
+                  <ToggleGroup fx:id="regionGroup" />
+               </toggleGroup></RadioButton>
+                <RadioButton fx:id="caRadio" mnemonicParsing="false" onAction="#radioSelectAction" text="Canada" toggleGroup="$regionGroup" />
+                <RadioButton fx:id="ukRadio" mnemonicParsing="false" onAction="#radioSelectAction" text="UK" toggleGroup="$regionGroup" />
+            </children>
+        </HBox>
+        <TextField fx:id="nameField" layoutX="14.0" layoutY="88.0" prefHeight="25.0" prefWidth="246.0" promptText="Full Name" />
+        <TextField fx:id="addressField" layoutX="14.0" layoutY="123.0" prefHeight="25.0" prefWidth="246.0" promptText="Address" />
+        <TextField fx:id="postalField" layoutX="14.0" layoutY="157.0" prefHeight="25.0" prefWidth="86.0" promptText="Postal" />
+        <TextField fx:id="phoneField" layoutX="15.0" layoutY="190.0" promptText="Phone Number" />
+      <HBox layoutX="192.0" layoutY="246.0" spacing="20.0">
+         <children>
+              <Button fx:id="addModifyButton" mnemonicParsing="false" onAction="#addModifyCust" text="Add" />
+              <Button mnemonicParsing="false" onAction="#close" text="Cancel" />
+         </children>
+      </HBox>
+        <Label fx:id="addModLabel" layoutX="106.0" layoutY="14.0" text="Create/Modify Customer">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+      <ComboBox fx:id="divisionCombo" layoutX="329.0" layoutY="190.0" prefWidth="150.0" />
+      <HBox layoutX="14.0" layoutY="262.0" spacing="5.0">
+         <children>
+            <Label text="Current User:" />
+            <Label fx:id="userLabel" text="User" />
+         </children>
+      </HBox>
+      <HBox layoutX="18.0" layoutY="62.0">
+         <children>
+            <Label alignment="CENTER" text="CUST ID: " />
+            <Label fx:id="appIDField" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="42.0" text="AUTO" />
+         </children>
+      </HBox>
+      <Label fx:id="divisionLabel" layoutX="270.0" layoutY="194.0" />
+    </children>
+</AnchorPane>

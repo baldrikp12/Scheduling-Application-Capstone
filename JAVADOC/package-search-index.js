@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"kbaldr2.main","l":"kbaldr2.controller"},{"m":"kbaldr2.main","l":"kbaldr2.helper"},{"m":"kbaldr2.main","l":"kbaldr2.main"},{"m":"kbaldr2.main","l":"kbaldr2.model"},{"m":"kbaldr2.main","l":"kbaldr2.model.dao"}];updateSearchResults();
