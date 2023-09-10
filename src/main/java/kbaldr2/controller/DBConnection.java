@@ -10,14 +10,29 @@ import java.sql.DriverManager;
 public class DBConnection {
     
     private static final String protocol = "jdbc";
-    private static final String vendor = ":mysql:";
-    private static final String location = "//wgu.ucertify.com:3306/";
-    private static final String localdDB = "jdbc:mysql://localhost:3306/client_schedule";
+    
+    //Local Database Info
+    private static final String vendor_Local = ":mysql:";
+    private static final String location_Local = "//localhost:3306/";
+    private static final String username_Local = "root";
+    private static final String password_Local = "Bypass12";
+    
+    
+    //Remote Database Info
+    private static final String vendor_Remote = ":mariadb:";
+    private static final String location_Remote = "//pi.local:3306/";
+    
+    //Database Name
     private static final String databaseName = "client_schedule";
-    private static final String jdbcUrl = protocol + vendor + location + databaseName;
-    private static final String driver = "com.mysql.cj.jdbc.Driver"; // Driver reference
-    private static final String userName = "sqlUser"; // Username
-    private static final String password = "Passw0rd!"; // Password
+    
+    private static final String jdbcUrl_Local = protocol + vendor_Local + location_Local + databaseName;
+    private static final String jdbcUrl_Remote = protocol + vendor_Remote + location_Remote + databaseName;
+    
+    private static final String username_Remote = "capstone";
+    private static final String password_Remote = "password";
+    
+    private static final String driver_Local = "com.mysql.cj.jdbc.Driver"; //driver for database on pc
+    private static final String driver_Remote = "org.mariadb.jdbc.Driver"; //driver for database on pc
     public static Connection connection = null;  // Connection Interface
     
     /**
@@ -26,10 +41,9 @@ public class DBConnection {
     public static void openConnection() {
         
         try {
-            Class.forName(driver); // Locate Driver
-            //connection = DriverManager.getConnection(jdbcUrl, userName, password); // Reference Connection object
-            connection = DriverManager.getConnection(localdDB, "root", "Bypass12"); // Reference Connection object
-            System.out.println("Connected to MySQL server.");
+            Class.forName(driver_Remote); // Locate Driver
+            //connection = DriverManager.getConnection(jdbcUrl_Local, username_Local, password_Local); // Reference Connection object on pc
+            connection = DriverManager.getConnection(jdbcUrl_Remote, username_Remote, password_Remote); //  Reference Connection object on Raspberry Pi
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }

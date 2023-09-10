@@ -39,7 +39,7 @@ public class LocationDAO extends DAO<DataCache> {
     @Override public ObservableList<DataCache> getAll() throws SQLException {
         
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("Select first_level_divisions.Division_ID, first_level_divisions.Division, Countries.Country_ID, Countries.Country from first_level_divisions inner join Countries on first_level_divisions.Country_ID = Countries.Country_ID; ");
+        ResultSet rs = statement.executeQuery("Select first_level_divisions.Division_ID, first_level_divisions.Division, countries.Country_ID, countries.Country from first_level_divisions inner join countries on first_level_divisions.Country_ID = countries.Country_ID; ");
         int divisionID;
         int countryID;
         String divisionName;

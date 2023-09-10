@@ -92,6 +92,6 @@
             </font>
         </Button>
         <Label layoutX="821.0" layoutY="176.0" text="REPORTS" />
-        <TextField fx:id="searchField" layoutX="599.0" layoutY="69.0" onAction="#searchSchedule" onKeyTyped="#searchSchedule" prefHeight="25.0" prefWidth="180.0" promptText="Search Appointments" />
+        <TextField fx:id="searchField" focusTraversable="false" layoutX="599.0" layoutY="69.0" onAction="#searchSchedule" onKeyTyped="#searchSchedule" prefHeight="25.0" prefWidth="180.0" promptText="Search Appointments" />
     </children>
 </AnchorPane>

@@ -3,6 +3,7 @@ module kbaldr2.main {
     requires javafx.fxml;
     //requires java.sql;
     requires transitive java.sql;
+    requires org.mariadb.jdbc;
     
     
     opens kbaldr2.controller to javafx.fxml;
