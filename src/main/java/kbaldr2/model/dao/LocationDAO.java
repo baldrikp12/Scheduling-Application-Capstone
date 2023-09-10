@@ -47,8 +47,8 @@ public class LocationDAO extends DAO<DataCache> {
         while (rs.next()) {
             divisionID = rs.getInt("first_level_divisions.Division_ID");
             divisionName = rs.getString("first_level_divisions.Division");
-            countryID = rs.getInt("Countries.Country_ID");
-            countryName = rs.getString("Countries.Country");
+            countryID = rs.getInt("countries.Country_ID");
+            countryName = rs.getString("countries.Country");
             divisionData.add(new Location(divisionID, divisionName, countryID, countryName));
         }
         return divisionData;

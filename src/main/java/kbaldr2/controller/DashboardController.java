@@ -303,12 +303,12 @@ public class DashboardController implements Initializable {
     }
     
     /**
-     * This method is called when the user types within the search field. It
-     * filters the parts displayed in the parts table based on the user's search
-     * input. If the input is a number, it searches for a part with that ID. If
-     * there are no matches it continues to search for part names containing that
-     * number. If the input is not a number, it searches for parts with a name
-     * containing the input. If the input is empty, it displays all parts.
+     * Searches for appointments or customers based on the provided search text
+     * and updates the displayed data accordingly in the dataCacheTable.
+     * If viewingAppointments is true, it searches for appointments; otherwise, it searches for customers.
+     * The search is case-insensitive and searches across relevant fields of the objects.
+     *
+     * @see ObjectSearchUtil#searchObjectFields(List, String, Class)
      */
     @FXML
     private void searchSchedule() {

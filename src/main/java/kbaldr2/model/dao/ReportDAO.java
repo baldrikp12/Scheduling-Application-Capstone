@@ -68,7 +68,7 @@ public class ReportDAO {
      */
     public Map<String, Set<String>> getAppointmentsByCustomerAndContact() {
         
-        String query = "SELECT c.Customer_Name AS Customer, co.Contact_Name AS Contact " + "FROM appointments a " + "INNER JOIN customers c ON a.Customer_ID = c.Customer_ID " + "INNER JOIN contacts co ON a.Contact_ID = co.Contact_ID " + "GROUP BY a.Customer_ID, a.Contact_ID " + "ORDER BY c.Customer_Name, co.Contact_Name;";
+        String query = "SELECT c.Customer_Name AS customer, co.Contact_Name AS contact " + "FROM appointments a " + "INNER JOIN customers c ON a.Customer_ID = c.Customer_ID " + "INNER JOIN contacts co ON a.Contact_ID = co.Contact_ID " + "GROUP BY a.Customer_ID, a.Contact_ID " + "ORDER BY c.Customer_Name, co.Contact_Name;";
         
         Map<String, Set<String>> appointmentsByCustomer = new LinkedHashMap<>();
         

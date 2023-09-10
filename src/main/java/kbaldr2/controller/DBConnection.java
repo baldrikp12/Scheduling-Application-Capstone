@@ -20,7 +20,8 @@ public class DBConnection {
     
     //Remote Database Info
     private static final String vendor_Remote = ":mariadb:";
-    private static final String location_Remote = "//pi.local:3306/";
+    //private static final String location_Remote = "//pi.local:3306/";
+    private static final String location_Remote = "//192.168.1.144:3306/";
     
     //Database Name
     private static final String databaseName = "client_schedule";
