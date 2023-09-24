@@ -1,0 +1,227 @@
+@startuml
+
+title __CONTROLLER's Class Diagram__\n
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.AppointmentController {
+          - addModLabel : Label
+          - addModifyButton : Button
+          - appIDField : Label
+          - contactCombo : ComboBox<String>
+          - createdByLabel : Label
+          - customerCombo : ComboBox<String>
+          - datePicker : DatePicker
+          - descArea : TextArea
+          - endTimeListView : ListView<String>
+          - isAdding : boolean
+          - localCloseHour : int
+          - localCloseMinute : int
+          - localOpenHour : int
+          - localOpenMinute : int
+          - locationField : TextField
+          - parentPane : AnchorPane
+          - startTimeListView : ListView<String>
+          - titleField : TextField
+          - typeField : TextField
+          - userLabel : Label
+          + initialize()
+          + setAppointmentToModify()
+          - addModifyApp()
+          - close()
+          - getEndDateTime()
+          - getStartDateTime()
+          - hasAppOverlap()
+          - initializeBusinessHours()
+          - isFilledOut()
+          - populateContactCombo()
+          - populateCustomerCombo()
+          - populateForm()
+          - updateEndTime()
+          - updateStartTime()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.AppointmentReportController {
+          - typeMonthReport : TextArea
+          + initialize()
+          - generateReport()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.CountReportController {
+          - contactCountArea : TextArea
+          + generateReport()
+          + initialize()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.CustomerController {
+          - addModLabel : Label
+          - addModifyButton : Button
+          - addressField : TextField
+          - appIDField : Label
+          - caRadio : RadioButton
+          - divisionCombo : ComboBox<String>
+          - divisionLabel : Label
+          - isAdding : boolean
+          - nameField : TextField
+          - parentPane : AnchorPane
+          - phoneField : TextField
+          - postalField : TextField
+          - regionGroup : ToggleGroup
+          - ukRadio : RadioButton
+          - usRadio : RadioButton
+          - userLabel : Label
+          + initialize()
+          + setCustomerToModify()
+          - addModifyCust()
+          - close()
+          - containsDivision()
+          - isFilledOut()
+          - populateForm()
+          - radioSelectAction()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.DBConnection {
+          {static} + connection : Connection
+          {static} - databaseName : String
+          {static} - driver_Local : String
+          {static} - driver_Remote : String
+          {static} - jdbcUrl_Local : String
+          {static} - jdbcUrl_Remote : String
+          {static} - location_Local : String
+          {static} - location_Remote : String
+          {static} - password_Local : String
+          {static} - password_Remote : String
+          {static} - protocol : String
+          {static} - username_Local : String
+          {static} - username_Remote : String
+          {static} - vendor_Local : String
+          {static} - vendor_Remote : String
+          {static} + closeConnection()
+          {static} + getConnection()
+          {static} + openConnection()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.DashboardController {
+          - allCustsRadio : RadioButton
+          - appAlertInfoLabel : Label
+          - appAlertLabel : Label
+          - closeAppAlertButton : Button
+          - dataCacheTable : TableView<DataCache>
+          - searchField : TextField
+          - viewingAppointments : boolean
+          - viewingLabel : Label
+          + disableDashboard()
+          + initialize()
+          ~ closeAppAlert()
+          - addRecord()
+          - configureTableView()
+          - deleteRecord()
+          - fifteenMinuteCheck()
+          - getAllAppointments()
+          - getAllContacts()
+          - getAllCustomers()
+          - getAllLocations()
+          - getAllUsers()
+          - hasAppointments()
+          - loadDataFromDatabase()
+          - logout()
+          - modifyRecord()
+          - searchSchedule()
+          - viewAllApps()
+          - viewAllCusts()
+          - viewAppointmentReport()
+          - viewAppsThisMonth()
+          - viewAppsThisWeek()
+          - viewCountReport()
+          - viewScheduleReport()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.LoginController {
+          - CURRENT_LOCALE : Locale
+          - errorLabel : Label
+          - exitButton : Button
+          - locationLabel : Label
+          - loginButton : Button
+          - passwordField : PasswordField
+          - titleLabel : Label
+          - usernameField : TextField
+          + close()
+          + initialize()
+          - checkCredentials()
+          - getRowCount()
+          - logAttempt()
+      }
+    }
+  }
+  
+
+  namespace  {
+    namespace baldr2.controller {
+      class kbaldr2.controller.ScheduleReportController {
+          - appReportTable : TableView<DataCache>
+          {static} - app_AppointmentIdCol : TableColumn<DataCache, Integer>
+          {static} - app_ContactCol : TableColumn<DataCache, String>
+          {static} - app_CustomerIdCol : TableColumn<DataCache, Integer>
+          {static} - app_DescriptionCol : TableColumn<DataCache, String>
+          {static} - app_EndDateAndTimeCol : TableColumn<DataCache, LocalDateTime>
+          {static} - app_StartDateAndTimeCol : TableColumn<DataCache, LocalDateTime>
+          {static} - app_TitleCol : TableColumn<DataCache, String>
+          {static} - app_TypeCol : TableColumn<DataCache, String>
+          - contactCombo : ComboBox<String>
+          {static} - contactList : ObservableList<DataCache>
+          {static} - dataCacheTable : TableView<DataCache>
+          + initialize()
+          - updateTable()
+      }
+    }
+  }
+  
+
+  kbaldr2.controller.AppointmentController .up.|> javafx.fxml.Initializable
+  kbaldr2.controller.AppointmentController o-- kbaldr2.model.Appointment : appointToMod
+  kbaldr2.controller.AppointmentReportController .up.|> javafx.fxml.Initializable
+  kbaldr2.controller.CountReportController .up.|> javafx.fxml.Initializable
+  kbaldr2.controller.CustomerController .up.|> javafx.fxml.Initializable
+  kbaldr2.controller.CustomerController o-- kbaldr2.model.Customer : customerToMod
+  kbaldr2.controller.DashboardController .up.|> javafx.fxml.Initializable
+  kbaldr2.controller.ScheduleReportController .up.|> javafx.fxml.Initializable
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
