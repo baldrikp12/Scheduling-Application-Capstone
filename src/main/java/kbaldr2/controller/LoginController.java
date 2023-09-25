@@ -102,7 +102,7 @@ public class LoginController {
      * @param password The user's password
      * @return true if the credentials are valid, false otherwise
      */
-    private boolean checkCredentials(String username, String password) {
+    boolean checkCredentials(String username, String password) {
         
         DBConnection.openConnection();
         Connection conn = DBConnection.getConnection();
@@ -141,7 +141,7 @@ public class LoginController {
      *
      * @param theLoginResult A string describing the result of the login attempt, e.g., "Success" or "Failed"
      */
-    private void logAttempt(String theLoginResult) {
+    void logAttempt(String theLoginResult) {
         
         String username = "null";
         
@@ -173,7 +173,7 @@ public class LoginController {
      *
      * @return The number of rows in the login_activity.txt file
      */
-    private int getRowCount() {
+    int getRowCount() {
         
         int rows = 1;
         try (BufferedReader br = new BufferedReader(new FileReader("login_activity.txt"))) {

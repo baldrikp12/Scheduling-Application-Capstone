@@ -27,10 +27,10 @@ public class DBConnection {
     private static final String databaseName = "client_schedule";
     
     private static final String jdbcUrl_Local = protocol + vendor_Local + location_Local + databaseName;
-    private static final String jdbcUrl_Remote = protocol + vendor_Remote + location_Remote + databaseName;
+    static final String jdbcUrl_Remote = protocol + vendor_Remote + location_Remote + databaseName;
     
-    private static final String username_Remote = "capstone";
-    private static final String password_Remote = "password";
+    static final String username_Remote = "capstone";
+    static final String password_Remote = "password";
     
     private static final String driver_Local = "com.mysql.cj.jdbc.Driver"; //driver for database on pc
     private static final String driver_Remote = "org.mariadb.jdbc.Driver"; //driver for database on pc
@@ -57,6 +57,7 @@ public class DBConnection {
         
         try {
             connection.close();
+            connection = null;
         } catch (Exception e) {
             System.out.println("DB controller: Error:" + e.getMessage());
         }
