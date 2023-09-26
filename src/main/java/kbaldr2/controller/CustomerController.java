@@ -75,7 +75,7 @@ public class CustomerController implements Initializable {
      */
     public void setCustomerToModify(DataCache theItem) {
         
-        addModLabel.setText("Update Appointment");
+        addModLabel.setText("Update Customer");
         addModifyButton.setText("Update");
         customerToMod = (Customer) theItem;
         isAdding = false;
